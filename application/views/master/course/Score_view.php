@@ -55,7 +55,7 @@
                                          foreach ($Evaluations as $Evaluation) {
                                                ?>
                                                <tr class="gradeA" >
-                                                <td class="center"><?php echo $Evaluation['NomEstudiante'];?> </td>
+                                                <td id="<?php echo $Evaluation['CodEstudiante'];?>" class="center"><?php echo $Evaluation['NomEstudiante'];?> </td>
                                                 <?php 
                                                 foreach ($Evaluation['Notas'] as $score) {
                                                   $notas[$count]['codEstudiante']=$Evaluation['CodEstudiante'];

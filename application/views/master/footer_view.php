@@ -41,11 +41,21 @@
 
     <script>
         $('#icol').click(function(){
+           
             if($('#col').val()){
                 $('#notas tr').append($("<td>"));
                 $('#notas thead tr>td:last').html($('#col').val());
-                $('#notas tbody tr').each(function(){$(this).children('td:last').append($('<input class="form-control" value="0" required>'))});
-               document.getElementById('criterios').value=Number(document.getElementById('criterios').value)+1;
+                $('#notas tbody tr').each(
+                                            function()
+                                            {
+                                        
+                                                  var jhon=$(this).children('td:first').attr('id');
+                                               
+                                                $(this).children('td:last').append(
+                                                            $('<input class="form-control" value="0" name="'.concat(jhon,'" required>')))
+                                               }
+                                        );
+                document.getElementById('criterios').value=Number(document.getElementById('criterios').value)+1;
 
 
             }else{alert('INGRESE NOMBRE DE NOTA');}
