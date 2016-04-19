@@ -41,25 +41,34 @@
 
     <script>
         $('#icol').click(function(){
-           
+
             if($('#col').val()){
                 $('#notas tr').append($("<td>"));
                 $('#notas thead tr>td:last').html($('#col').val());
                 $('#notas tbody tr').each(
-                                            function()
-                                            {
-                                        
-                                                  var jhon=$(this).children('td:first').attr('id');
-                                               
-                                                $(this).children('td:last').append(
-                                                            $('<input class="form-control" value="0" name="'.concat(jhon,'" required>')))
-                                               }
-                                        );
+                    function()
+                    {
+
+                      var jhon=$(this).children('td:first').attr('id');
+
+                      $(this).children('td:last').append(
+                        $('<input class="form-control" value="0" name="'.concat(jhon,'" required>')))
+                  }
+                  );
                 $('#criterios').val($('#col').val());
-                //document.getElementById('criterios').value=;
+                var parrafo = document.getElementById("icol");
+                parrafo.parentNode.removeChild(parrafo);
+                var parrafo = document.getElementById("col");
+                parrafo.parentNode.removeChild(parrafo);
 
 
             }else{alert('INGRESE NOMBRE DE NOTA');}
         });
     </script>
 
+<script type="text/javascript">
+     function anular(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          return (tecla != 13);
+     }
+</script>

@@ -16,13 +16,13 @@
               <!-- /.panel-heading -->
               <div class="panel-body">
 
-                  <form role="form"  method="post">
+                  <form role="form"  method="post" onkeypress="return anular(event)">
 
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Agregar nota
-                            <a id="icol" title="Agregar" class="btn btn-primary" role="button"><i class="glyphicon glyphicon-check"></i></a>
+                            <a id="icol" visibility="hidden" title="Agregar" class="btn btn-primary" role="button"><i class="glyphicon glyphicon-check"></i></a>
                             <input id="col" placeholder="Ingrese nombre de nota"/>
                         </div>
                         <!-- /.panel-heading -->
@@ -77,11 +77,6 @@
                                            <input type="hidden" id="evaluaciones" name="evaluaciones" value='<?php echo json_encode($notas);?>'>
                                           
                                        </table>
-                                         <?php
-                                              echo('<pre>');
-                                                print_r(json_encode($notas));
-                                                echo('</pre>');
-                                                ?>
                                    </div>
                                    <!-- /.table-responsive -->
                                </div>
