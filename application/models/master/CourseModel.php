@@ -55,7 +55,7 @@ class CourseModel extends CI_Model {
           // $response=json_decode($response,true);
            //echo 'correcto';
             } catch (Exception $e) {
-                echo 'fallo';
+               // echo 'fallo';
             }
 
 	}
