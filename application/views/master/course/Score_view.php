@@ -24,6 +24,8 @@
                             Agregar nota
                             <a id="icol" visibility="hidden" title="Agregar" class="btn btn-primary" role="button"><i class="glyphicon glyphicon-check"></i></a>
                             <input id="col" placeholder="Ingrese nombre de nota"/>
+
+                            <button type="submit" class="btn btn-primary">Grabar</button>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

@@ -28,11 +28,40 @@ class Teacher extends CI_Controller {
 	}
 	public function add()
 	{
+
+
+		if ($this->input->server('REQUEST_METHOD') == 'GET')
+		{
 		$this->load->view('director/header_view');
 		$this->load->view('director/navigation_view');
 		$this->load->view('director/wrapper_view');
 		$this->load->view('director/Teacher/add_teacher_view');
 		$this->load->view('director/footer_view');
+		}
+		//post
+		else if ($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+		
+			//cargar modelo
+			$this->load->model('director/TeacherModel');
+
+
+			$teacher['nomProfesor']=$this->input->post('names');
+			$teacher['apePaternoProfesor']=$this->input->post('father_last_name');
+			$teacher['apeMaternoProfesor']=$this->input->post('mother_last_name');
+			$teacher['sexoProfesor']=$this->input->post('sex');//FM
+			$teacher['dirProfesor']=$this->input->post('address_street');
+			$teacher['emailProfesor']=$this->input->post('email');//*
+			$teacher['telfProfesor']=$this->input->post('cellphone');//*
+			$teacher['fechaNacProfesor']=$this->input->post('date');
+
+			
+			echo('<pre>');
+			print_r($this->TeacherModel->add(json_encode($teacher,true)));
+			echo('</pre>');
+
+
+		}
 	}
 		public function relation_course_teacher()
 	{

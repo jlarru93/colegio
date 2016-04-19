@@ -10,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">                                
-                          <a href="<?php echo site_url('Teacher/add'); ?>" class="btn btn-primary" role="button">Registrar</a>          
+                          <a href="<?php echo site_url('Director/Teacher/add'); ?>" class="btn btn-primary" role="button">Registrar</a>          
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -33,8 +33,8 @@
                                             <td>didactica estudiantil</td>
                                             <td class="center">4</td>
                                             <td class="center">
-                                                <a href="<?php echo site_url('Teacher/course_teacher'); ?>" class="btn btn-primary btn-circle" role="button"><i class="glyphicon glyphicon-check"></i></a>
-                                                <a href="<?php echo site_url('Teacher/relation_course_teacher'); ?>" class="btn btn-success btn-circle" role="button"><i class="fa fa-arrows-h"></i></a>                                                
+                                                <a href="<?php echo site_url('Director/Teacher/course_teacher'); ?>" class="btn btn-primary btn-circle" role="button"><i class="glyphicon glyphicon-check"></i></a>
+                                                <a href="<?php echo site_url('Director/Teacher/relation_course_teacher'); ?>" class="btn btn-success btn-circle" role="button"><i class="fa fa-arrows-h"></i></a>                                                
                                                 <a href="<?php echo '#'; ?>" class="btn btn-info btn-circle" role="button"><i class="fa fa-check"></i></a> 
                                                 <a href="<?php echo '#'; ?>" class="btn btn-danger btn-circle" role="button"><i class="fa fa-times"></i></a> 
                                                 
