@@ -68,20 +68,19 @@ class Course extends CI_Controller {
 	public function Score($idtypeEvaluation=null,$idCourse=null,$idsection=null,$DescripTipoEvaluacion=null)
 	{
 		$this->load->model('master/CourseModel');
+		//metodo del modelo
+		$response=$this->CourseModel->getScore($idtypeEvaluation,$idCourse,$idsection);	
+		$Evaluations=$response;
+		//variable a enviar	
+		$Evaluations['Evaluations']=$Evaluations;
+		$Evaluations['DescripTipoEvaluacion']= $DescripTipoEvaluacion;
+	//	$Evaluations['codTipoEvaluacion']= $idtypeEvaluation;
+	//	$Evaluations['codCurso']= $idCourse;
+//		$Evaluations['idSeccion']= $idsection;
+		//$Evaluations['codProfesor']=json_decode($_COOKIE["user_data_cookie"],true)['codProfesor'];;
+
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
 		{
-		//cargando vistas
-			
-		//metodo del modelo
-			$Evaluations=$this->CourseModel->getScore($idtypeEvaluation,$idCourse,$idsection);	
-		//variable a enviar	
-			$Evaluations['Evaluations']=$Evaluations;
-			$Evaluations['DescripTipoEvaluacion']= $DescripTipoEvaluacion;
-			$Evaluations['codTipoEvaluacion']= $idtypeEvaluation;
-			$Evaluations['codCurso']= $idCourse;
-			$Evaluations['idSeccion']= $idsection;
-			$Evaluations['codProfesor']=json_decode($_COOKIE["user_data_cookie"],true)['codProfesor'];;
-
 		//cargar vista
 			$this->load->view('master/header_view');
 			$this->load->view('master/navigation_view');
@@ -90,15 +89,49 @@ class Course extends CI_Controller {
 			$this->load->view('master/footer_view');
 		}else if ($this->input->server('REQUEST_METHOD') == 'POST')
 		{
+
+			$Evaluations_new=$this->input->post('criterios');
+
 			$Evaluations=json_decode( $this->input->post('evaluaciones'),true);
+		
+
 			for ($i=0; $i < count($Evaluations); $i++) { 
-			$Evaluations[$i]['nota']=$this->input->post($Evaluations[$i]['idEvaluacion']);	
+
+				$Evaluations[$i]['nota']=$this->input->post($Evaluations[$i]['idEvaluacion']);	
+				$Evaluations[$i]['codTipoEvaluacion']=$idtypeEvaluation;	
+				$Evaluations[$i]['codProfesor']=json_decode($_COOKIE["user_data_cookie"],true)['codProfesor'];	
+				$Evaluations[$i]['codCurso']=$idCourse;	
+				$Evaluations[$i]['idSeccion']=$idsection;	
+
 			}			
-			$this->CourseModel->setScore(json_encode($Evaluations));
 
-		}
+			if ($Evaluations_new!='') {
+				$conta=0;
 
-	}
+				foreach ($response as $res) 
+				{
+					$fila=count($Evaluations)+$conta;
+					$Evaluations[$fila]['nota']=$this->input->post($res['CodEstudiante']);	
+					$Evaluations[$fila]['codTipoEvaluacion']=$idtypeEvaluation;	
+					$Evaluations[$fila]['codProfesor']=json_decode($_COOKIE["user_data_cookie"],true)['codProfesor'];	
+					$Evaluations[$fila]['codCurso']=$idCourse;	
+					$Evaluations[$fila]['idSeccion']=$idsection;
+					$Evaluations[$fila]['idEvaluacion']='0';
+					$Evaluations[$fila]['descripEvaluacion']=$Evaluations_new;
+					$Evaluations[$fila]['codEstudiante']=$res['CodEstudiante'];
+				
+					
+				}
+
+}else{
+	//echo "nada";
+}
+
+$this->CourseModel->setScore(json_encode($Evaluations));
+
+}
+
+}
 
 
 }

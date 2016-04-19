@@ -45,7 +45,7 @@
                                                   
                                             </tr>
 
-                                            <input type="hidden" id="criterios" value="<?php echo "".$CountDescripEvaluacion;?>">
+                                            <input type="hidden" id="criterios" name="criterios" value="">
 
                                         </thead>
                                         <tbody>
@@ -59,13 +59,9 @@
                                                 <?php 
                                                 foreach ($Evaluation['Notas'] as $score) {
                                                   $notas[$count]['codEstudiante']=$Evaluation['CodEstudiante'];
-                                                  $notas[$count]['descripEvaluacion']=$score['DescripEvaluacion'];
-                                                  $notas[$count]['idEvaluacion']=$score['IdEvaluacion'];
-                                                  $notas[$count]['codTipoEvaluacion']=$codTipoEvaluacion;
-                                                  $notas[$count]['codProfesor']=$codProfesor;
-                                                  $notas[$count]['codCurso']=$codCurso;
-                                                  $notas[$count]['idSeccion']=$idSeccion;
-                                                  $notas[$count]['nota']=$score['Nota'];
+                                                  $notas[$count]['descripEvaluacion']=$score['DescripEvaluacion'];//
+                                                  $notas[$count]['idEvaluacion']=$score['IdEvaluacion'];//
+                                                  $notas[$count]['nota']=$score['Nota'];//
                                                    ?>
                                                    <td class="center" padding="5px"> 
                                                         <input class="form-control" value="<?php echo $score['Nota'];?>" name="<?php echo ''.$score['IdEvaluacion'];?>" required> 

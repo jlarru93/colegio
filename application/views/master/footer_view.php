@@ -55,7 +55,8 @@
                                                             $('<input class="form-control" value="0" name="'.concat(jhon,'" required>')))
                                                }
                                         );
-                document.getElementById('criterios').value=Number(document.getElementById('criterios').value)+1;
+                $('#criterios').val($('#col').val());
+                //document.getElementById('criterios').value=;
 
 
             }else{alert('INGRESE NOMBRE DE NOTA');}
