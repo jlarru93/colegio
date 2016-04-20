@@ -32,15 +32,33 @@
     <!-- Datepicker -->
     <link href="<?php echo base_url() ;?>css/datepicker.css" rel="stylesheet" type="text/css">
 
-    
+    <style type="text/css">
+        table, tr, td, th {
+          border: 1px solid #000;
+          position: relative;
+          padding: 10px;
+      }
+
+      th span {
+          transform-origin: 0 50%;
+          transform: rotate(-90deg); 
+          white-space: nowrap; 
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+      }
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  </style>
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-   
-</head>
+        
+    </head>

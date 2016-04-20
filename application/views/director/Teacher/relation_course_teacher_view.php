@@ -28,34 +28,74 @@
                                             </select>
 
                                         </div>
-                                  
-                                        <div class="form-group">
-                                        <label>Selecione el grado</label>
-                                            <select class="form-control">
-                                                <option>1°</option>
-                                                <option>2°</option>
-                                                <option>3° </option>
-                                                <option>4° </option>
-                                                <option>5° </option>
-                                                <option>6° </option>                                                
-                                            </select>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th ><span># grado</span></th>
+                                            <th ><span>First Name</span></th>
+                                            <th ><span>First Name</span></th>
+                                            <th ><span>First Name</span></th>
+                                           
+                                            <th ><span>First Name</span></th>
+                                            <th ><span>First Name</span></th>
+                                            <th ><span>First Name</span></th>
 
-                                        </div>
-                                  
-
-                                        <div class="form-group">
-                                          <label>Selecione el curso</label>
-                                            <select class="form-control">
-                                                <option>matematica </option>
-                                                <option>civica </option>
-                                                <option>ciencia y ambiente </option>
-                                                <option>religion </option>
-                                                <option>historia </option>
-                                                <option>geografia </option>
-                                                <option>arte </option>
-                                            </select>
-
-                                        </div>
+                                            <th ><span>First Name</span></th>
+                                            <th ><span>First Name</span></th>
+                                            <th ><span>First Name</span></th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> 
+                                                1
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" value="">
+                                            </td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                        </tr>
+                                          <tr>
+                                            <td> 
+                                               2
+                                            </td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                        </tr>
+                                          <tr>
+                                            <td>3</td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" value=""></td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                                       
                                   
                                         <div class="form-group">
                                             <button type="submit" disabled class="btn btn-primary">terminar</button>
