@@ -34,7 +34,6 @@
 
     <style type="text/css">
         table, tr, td, th {
-          border: 1px solid #000;
           position: relative;
           padding: 10px;
       }

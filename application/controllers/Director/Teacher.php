@@ -20,11 +20,31 @@ class Teacher extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('director/header_view');
-		$this->load->view('director/navigation_view');
-		$this->load->view('director/wrapper_view');
-		$this->load->view('director/Teacher/teacher_view');
-		$this->load->view('director/footer_view');
+
+		if ($this->input->server('REQUEST_METHOD') == 'GET')
+			{
+				//cargar modelo
+				$this->load->model('director/TeacherModel');
+				//metodo del modelo para obtener la lista de todos los profesores
+				$teachers=$this->TeacherModel->GetAll();
+				echo('<pre>');
+				print_r($teachers[3]);
+				echo('</pre>');
+				$teachers['teachers']=$teachers;
+				$this->load->model('director/TeacherModel');
+				$this->load->view('director/header_view');
+				$this->load->view('director/navigation_view');
+				$this->load->view('director/wrapper_view');
+				$this->load->view('director/Teacher/teacher_view',$teachers);
+				$this->load->view('director/footer_view');		
+			}
+		//post
+			else if ($this->input->server('REQUEST_METHOD') == 'POST')
+				{
+
+				}
+
+		
 	}
 	public function add()
 	{
@@ -56,10 +76,13 @@ class Teacher extends CI_Controller {
 			$teacher['fechaNacProfesor']=$this->input->post('date');
 
 			
-			echo('<pre>');
-			print_r($this->TeacherModel->add(json_encode($teacher,true)));
-			echo('</pre>');
-
+			$this->TeacherModel->add(json_encode($teacher,true));
+			//cargar WEb
+			$this->load->view('director/header_view');
+			$this->load->view('director/navigation_view');
+			$this->load->view('director/wrapper_view');
+			$this->load->view('director/Teacher/add_teacher_view');
+			$this->load->view('director/footer_view');
 
 		}
 	}

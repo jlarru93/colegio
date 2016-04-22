@@ -80,7 +80,7 @@
                                         </tr>
                                           <tr>
                                             <td>3</td>
-                                            <td><input type="checkbox" value=""></td>
+                                            <td><input type="checkbox" disabled="" checked="true" value=""></td>
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
