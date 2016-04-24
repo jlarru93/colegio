@@ -27,9 +27,7 @@ class Teacher extends CI_Controller {
 				$this->load->model('director/TeacherModel');
 				//metodo del modelo para obtener la lista de todos los profesores
 				$teachers=$this->TeacherModel->GetAll();
-				echo('<pre>');
-				print_r($teachers[3]);
-				echo('</pre>');
+			
 				$teachers['teachers']=$teachers;
 				$this->load->model('director/TeacherModel');
 				$this->load->view('director/header_view');

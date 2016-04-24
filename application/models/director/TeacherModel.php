@@ -9,11 +9,11 @@ class TeacherModel extends CI_Model {
 	private $course= array();
 
 
-    var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
+   // var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
     
     public function  add($teacher=null)
     {
-      $ur=$this->uri_web.'/profesor/registrar';
+      $ur=web_service_uri.'/profesor/registrar';
       try {                 
        $response = \Httpful\Request::post($ur)->addHeader('Content-Type', 'application/json;charset=UTF-8')->body($teacher)->send();
        $response=json_decode($response,true);
@@ -27,7 +27,7 @@ class TeacherModel extends CI_Model {
 public function  GetAll()
 {
     $response=null;
-    $ur=$this->uri_web.'/profesor/listar';
+    $ur=web_service_uri.'/profesor/listar';
     try {                 
         $response = \Httpful\Request::get($ur)->send();
         $response=json_decode($response,true);

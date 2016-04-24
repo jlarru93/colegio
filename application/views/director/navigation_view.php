@@ -245,6 +245,9 @@
                         <li>
                             <a href="<?php echo site_url('director/course/index');?>"><i class="fa fa-table fa-fw"></i> Cursos</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('director/father/index');?>"><i class="fa fa-wrench fa-fw"></i> Padres</a>  
+                        </li>
                           <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Niveles<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">                              
@@ -252,22 +255,22 @@
                                     <a href="#">Primaria<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Primero</a>
+                                            <a onclick="filtro('Primero primaria');"  >Primero</a>
                                         </li>
                                         <li>
-                                            <a href="#">Segundo</a>
+                                            <a onclick="filtro('segundo primaria');" >Segundo</a>
                                         </li>
                                         <li>
-                                            <a href="#">Tercero</a>
+                                            <a onclick="filtro('Tercero primaria');">Tercero</a>
                                         </li>
                                         <li>
-                                            <a href="#">Cuarto</a>
+                                            <a onclick="filtro('Cuarto primaria');">Cuarto</a>
                                         </li>
                                         <li>
-                                            <a href="#">Quinto</a>
+                                            <a onclick="filtro('Quinto primaria');">Quinto</a>
                                         </li>
                                         <li>
-                                            <a href="#">Sexto</a>
+                                            <a onclick="filtro('Sexto primaria');">Sexto</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
@@ -276,19 +279,19 @@
                                     <a href="#">Secundaria <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                          <li>
-                                            <a href="#">Primero</a>
+                                            <a onclick="filtro('Primero Secundaria');">Primero</a>
                                         </li>
                                         <li>
-                                            <a href="#">Segundo</a>
+                                            <a onclick="filtro('Segundo Secundaria');">Segundo</a>
                                         </li>
                                         <li>
-                                            <a href="#">Tercero</a>
+                                            <a onclick="filtro('Tercero Secundaria');">Tercero</a>
                                         </li>
                                         <li>
-                                            <a href="#">Cuarto</a>
+                                            <a onclick="filtro('Cuarto Secundaria');">Cuarto</a>
                                         </li>
                                         <li>
-                                            <a href="#">Quinto</a>
+                                            <a onclick="filtro('Quinto Secundaria');">Quinto</a>
                                         </li>
                                     
                                     </ul>
@@ -298,49 +301,10 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                      
+         
                         <li>
-                            <a href="<?php echo site_url('director/father/index');?>"><i class="fa fa-wrench fa-fw"></i> Padres</a>  
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Salir<span class="fa arrow"></span></a>
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>

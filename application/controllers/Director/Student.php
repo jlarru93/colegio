@@ -18,7 +18,7 @@ class student extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($search=null)
 	{
 
 		//cargar modelo
@@ -30,6 +30,7 @@ class student extends CI_Controller {
 		// print_r($alumnos);
 		// echo('</pre>');
 		$alumnos['alumnos']=$alumnos;
+		$alumnos['search']=$search;
 		$this->load->view('director/header_view');
 		$this->load->view('director/navigation_view');
 		$this->load->view('director/wrapper_view');

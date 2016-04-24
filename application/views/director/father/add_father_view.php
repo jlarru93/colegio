@@ -75,7 +75,7 @@
                                         <div class="form-group">
                                             <label>Foto</label>
 
-                                            <input type='file' accept="image/*" id="imgInp" />
+                                            <input type='file' accept="image/*" id="imgInp" name="photo" />
                                             <img id="blah" src="#" alt="your image" width="200px"  height="200px" />                                           
                                         </div> 
                                     </div>

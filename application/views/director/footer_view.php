@@ -29,8 +29,21 @@
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
-                responsive: true
-        });
+                
+              "language": {
+            "lengthMenu": "mostrar _MENU_ alumnos por pagina",
+            "zeroRecords": "Disculpe - no se encontro ningun resultado",
+            "info": "pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "sSearch": "buscar",
+               "oPaginate": {
+        "sNext": "siguiente",
+        "sPrevious": "anterior"
+      }
+        }
+        }
+        );
     });
     </script>
     <!-- datepicker -->
@@ -106,5 +119,11 @@ $("#imgInp").change(function(){
     }
 
 </script>
+<script >
+
+function filtro(mensaje){
+ $('#dataTables-example').DataTable().search(mensaje).draw();fin
+}
+</script>>
 
 

@@ -6,7 +6,7 @@ class UserModel extends CI_Model {
 	var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
 
 	function login($name_user,$password,$remember) {
-		$ur=$this->uri_web.'/usuario/login?nombreUsuario='.$name_user.'&clave='.$password;
+		$ur=web_service_uri.'/usuario/login?nombreUsuario='.$name_user.'&clave='.$password;
 		$response = \Httpful\Request::post($ur)->send();
 		$response=json_decode($response,true);
 		

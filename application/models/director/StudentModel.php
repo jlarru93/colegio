@@ -11,11 +11,11 @@ class StudentModel extends CI_Model {
 	private $mother_last_name;
 	private $fathers= array();
 
-var $uri_web='http://190.117.118.40:4444/WSColegio/rest';    
+//var $uri_web='http://190.117.118.40:4444/WSColegio/rest';    
 	  
     public function  add($student)
         {
-            $ur=$this->uri_web.'/estudiante/registrar';
+            $ur=web_service_uri.'/estudiante/registrar';
             try {                 
 
            $json_student=json_encode($student);
@@ -29,7 +29,7 @@ var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
         }
     public function  getall()
         {
-            $ur=$this->uri_web.'/estudiante/listar';
+            $ur=web_service_uri.'/estudiante/listar';
             $response = \Httpful\Request::get($ur)->send();
             $response=json_decode($response,true);
             return $response;
@@ -37,7 +37,7 @@ var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
 
       public function  getcourse($codstudent)
         {
-            $ur=$this->uri_web.'/estudiante/listarCursosWeb?codEstudiante='.$codstudent;
+            $ur=web_service_uri.'/estudiante/listarCursosWeb?codEstudiante='.$codstudent;
             $response = \Httpful\Request::get($ur)->send();
             $response=json_decode($response,true);
             return $response;

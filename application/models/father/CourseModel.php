@@ -6,12 +6,12 @@ class CourseModel extends CI_Model {
 
 
 
-	var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
+//	var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
 
    public function gettypeEvaluation($idcurso=null)
 	{
 
-		$ur=$this->uri_web.'/evaluacion/listarTipoEvaluacionPorCurso?codCurso='.$idcurso;
+		$ur=web_service_uri.'/evaluacion/listarTipoEvaluacionPorCurso?codCurso='.$idcurso;
         $response = \Httpful\Request::get($ur)->send();
         $response=json_decode($response,true);
         return $response;

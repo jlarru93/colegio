@@ -13,7 +13,7 @@ class StudentModel extends CI_Model {
 
 			$codApoderado= json_decode($_COOKIE["user_data_cookie"],true)['codApoderado'];			
 			//var_dump($_COOKIE["user_data_cookie"]) ;
-            $ur=$this->uri_web.'/apoderado/listarEstudiantes?codApoderado='.$codApoderado;
+            $ur=web_service_uri.'/apoderado/listarEstudiantes?codApoderado='.$codApoderado;
             $response = \Httpful\Request::get($ur)->send();
             $this->load->helper('cookie');  
             $cookie = array(
@@ -31,7 +31,7 @@ class StudentModel extends CI_Model {
 
     public function  getcourse($codstudent){
 
-        $ur=$this->uri_web.'/estudiante/listarCursosWeb?codEstudiante='.$codstudent;
+        $ur=web_service_uri.'/estudiante/listarCursosWeb?codEstudiante='.$codstudent;
         $response = \Httpful\Request::get($ur)->send();
         $response=json_decode($response,true);
         return $response;

@@ -22,13 +22,12 @@ class Father extends CI_Controller {
 	{
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
 		{
+			
 		//cargar modelo
 			$this->load->model('director/FatherModel');
 				//metodo del modelo para obtener la lista de todos los profesores
 			$fathers=$this->FatherModel->GetAll();
-			echo('<pre>');
-			print_r($fathers[0]);
-			echo('</pre>');
+		
 			$fathers['fathers']=$fathers;
 
 			$this->load->view('director/header_view');
@@ -51,8 +50,7 @@ class Father extends CI_Controller {
 
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
 		{
-			$hoy = getdate();
-			echo hash('ripemd160', $hoy['seconds'].$hoy['minutes'].$hoy['hours'].$hoy['mday'].$hoy['mon'].$hoy['year']);
+			
 			$this->load->view('director/header_view');
 			$this->load->view('director/navigation_view');
 			$this->load->view('director/wrapper_view');
@@ -65,20 +63,23 @@ class Father extends CI_Controller {
 
 
 			//cargar modelo
-			$this->load->model('director/TeacherModel');
+			$this->load->model('director/FatherModel');
+			$today = getdate();
+			$photoName=hash('ripemd160', $today['seconds'].$today['minutes'].$today['hours'].$today['mday'].$today['mon'].$today['year']);
 
+			$father['dniApoderado']=$this->input->post('dni');
+			$father['nomApoderado']=$this->input->post('names');
+			$father['apePaternoApoderado']=$this->input->post('father_last_name');
+			$father['apeMaternoApoderado']=$this->input->post('mother_last_name');//FM
+			$father['dirApoderado']=$this->input->post('address_street');
+			$father['telfApoderado']=$this->input->post('cellphone');//*
+			$father['sexoApoderado']=$this->input->post('sex');//*
+			$father['fechaNacApoderado']=$this->input->post('date');
+			$father['fotoApoderado']=$photoName;//$this->input->post('photo');
 
-			$teacher['nomProfesor']=$this->input->post('names');
-			$teacher['apePaternoProfesor']=$this->input->post('father_last_name');
-			$teacher['apeMaternoProfesor']=$this->input->post('mother_last_name');
-			$teacher['sexoProfesor']=$this->input->post('sex');//FM
-			$teacher['dirProfesor']=$this->input->post('address_street');
-			$teacher['emailProfesor']=$this->input->post('email');//*
-			$teacher['telfProfesor']=$this->input->post('cellphone');//*
-			$teacher['fechaNacProfesor']=$this->input->post('date');
-
-			
-			$this->TeacherModel->add(json_encode($teacher,true));
+			//agregar apoderado
+			$response=$this->FatherModel->add(json_encode($father,true));
+			var_dump($response);
 			//cargar WEb
 			$this->load->view('director/header_view');
 			$this->load->view('director/navigation_view');

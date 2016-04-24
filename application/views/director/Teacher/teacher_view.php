@@ -19,9 +19,9 @@
                                     <thead>
                                         <tr>
                                             <th>nombre completo</th>
-                                            <th>nivel</th>
-                                            <th>especialidad</th>
-                                            <th>Engine version</th>
+                                            <th>telefono</th>
+                                            <th>correo</th>
+                                            <th>direccion</th>
                                             <th>acciones</th>
                                         </tr>
                                     </thead>
@@ -37,9 +37,21 @@
                                                 ?>
 
                                             </td>
-                                            <td>primaria</td>
-                                            <td>didactica estudiantil</td>
-                                            <td class="center">4</td>
+                                            <td>
+                                                 <?php
+                                                    echo $teacher['telfProfesor'];
+                                                ?>
+                                            </td>
+                                            <td> 
+                                            <?php
+                                                    echo $teacher['emailProfesor'];
+                                                ?>
+                                            </td>
+                                            <td class="center"> 
+                                            <?php
+                                                    echo $teacher['dirProfesor'];
+                                                ?>
+                                            </td>
                                             <td class="center">
                                                 <a href="<?php echo site_url('Director/Teacher/course_teacher/'.$teacher['codProfesor']); ?>" class="btn btn-primary btn-circle" role="button"><i class="glyphicon glyphicon-check"></i></a>
                                                 <a href="<?php echo site_url('Director/Teacher/relation_course_teacher'); ?>" class="btn btn-success btn-circle" role="button"><i class="fa fa-arrows-h"></i></a>                                                

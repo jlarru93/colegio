@@ -18,11 +18,10 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
+                                            <th>Nombre</th>
+                                            <th>telefono</th>
+                                            <th>direccion</th>
                                             <th>Engine version</th>
-                                            <th>CSS grade</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,9 +37,16 @@
                                                     echo $father['apePaternoApoderado'].' ';
                                                     echo $father['apeMaternoApoderado'].' ';
                                             ?></td>
-                                            <td>Firefox 1.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td class="center">1.7</td>
+                                            <td>
+                                            <?php
+                                                    echo $father['telfApoderado'];
+                                            ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    echo $father['dirApoderado'];
+                                            ?>
+                                            </td>
                                             <td class="center">
                                                 <a href="<?php echo '#'; ?>" class="btn btn-primary btn-circle" role="button"><i class="fa fa-list"></i></a>
                                                 <a href="<?php echo site_url('father/edit_father'); ?>" class="btn btn-warning btn-circle" role="button"><i class="fa fa-edit"></i></a>

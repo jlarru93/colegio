@@ -13,6 +13,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);
 
+
+/* vairalbe para web service*/
+defined('web_service_uri') OR define('web_service_uri', 'http://190.117.118.40:4444/WSColegio/rest');
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes
