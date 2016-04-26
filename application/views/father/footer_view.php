@@ -28,8 +28,63 @@
                 responsive: true
         });
         
+        $('button').on('click',function(e){
+            //id CodTipoEvaluacion_1_idCourse_$idStudent
+            var id=$(this).attr('name');
+           console.log(id);
+            //alert('da');
+            var contenedor=document.getElementById("notas_trimestral");
+
+var fila = document.createElement("tr");
+var celda1= document.createElement("th");
+var celda2= document.createElement("th");
+// Crear nodo de tipo Text
+var contenido1 = document.createTextNode(id);
+var contenido2 = document.createTextNode(id);
+ 
+// Añadir el nodo Text como hijo del nodo Element
+celda1.appendChild(contenido1);
+celda2.appendChild(contenido2);
+
+
+fila.appendChild(celda1);
+fila.appendChild(celda2);
+ 
+// Añadir el nodo Element como hijo de la pagina
+contenedor.appendChild(fila);
+            
+   var request;
+            if (request) {
+                request.abort();
+            };
+            request=$.ajax({
+                url:"<?php echo base_url('/Father/Course/Score');?>" ,
+                type:"POST",
+                //CodTipoEvaluacion_1_idCourse_$idStudent
+                //TE008_1_C114_EST00094
+               data:'codEstudiante='+id
+            });
+        
+          request.done(function(response,TextStatus,jqXHR){
+            console.log(response);
+          });
+
+
+            request.fail(function(jqXHR,TextStatus,thrown){
+               console.log('Error '+TextStatus);
+            });
+
+            request.always(function(){
+                console.log('termino');
+            });
+
+            e.preventDefault();
+    
+
+        });
     });
     </script>
+
     <script>
         $(function(){
             $('.datepicker').datepicker({
@@ -38,5 +93,5 @@
             
         });
     </script>
-    <script>
+
 

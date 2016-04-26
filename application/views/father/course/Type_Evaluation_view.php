@@ -1,33 +1,68 @@
               <div id="page-wrapper">
-                   <div class="row">
+               <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Criterios de Evaluacion</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Emphasis Classes
-                        </div>
-                        <div class="panel-body">
-                        <ul>
-                        <?php foreach ($typeEvaluations as $typeEvaluation) {
-                            # code...
-                        ?>
-                 
-                            <li><a href="<?php echo site_url('father/Course/Score/'.$typeEvaluation['CodTipoEvaluacion']); ?>" ><?php echo "".$typeEvaluation['DescripTipoEvaluacion'] ; ?></a></li>
-
-                        <?php  }
-
-                            ?>
-                        </ul>
-                        </div>
-                        <!-- /.panel-body -->
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Emphasis Classes
                     </div>
-                    <!-- /.panel -->
-                </div>
+                    <div class="panel-body">
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">criterio de evaluacion</th>
+                                        <th colspan="3" class="text-center">trimestres</th>
+
+                                    </tr>
+                                    <tr>
+                                        <th>primero</th>
+                                        <th>segundo</th>
+                                        <th>trercero</th>
+                                    </tr>
+                                </thead>
+
+                                <?php  foreach ($typeEvaluations as $typeEvaluation): ?>
+                                    <tr>
+                                        <th><?php echo($typeEvaluation['DescripTipoEvaluacion']);?></th>
+                                        <th><button name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"1","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Primer']);?></button></th>
+                                        <th><button name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"2","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Segundo']);?></button></th>
+                                        <th><button name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"3","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Tercero']);?></button></th>
+                                    </tr>
+
+
+                                <?php endforeach ?>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                      
+                                        <tr>
+                                            <th>descripcion</th>
+                                            <th>nota</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="notas_trimestral">
+                                     
+                                    </tbody>
+
+                                </div>
+
+
+                            </div>
+                            <!-- /.panel-body -->
+
+
+                        </div>
+                        <!-- /.panel -->
+                    </div>
                 </div>
 
                 

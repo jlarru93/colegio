@@ -47,6 +47,7 @@ class student extends CI_Controller {
 			
 			
 			$courses['courses']=$courses;
+			$courses['codstudent']=$codstudent;
 
 			$this->load->view('father/header_view');
 			$this->load->view('father/navigation_view');

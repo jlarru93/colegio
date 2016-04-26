@@ -11,7 +11,7 @@
             <?php      //   print_r($courses[0]);           ?>
         <?php foreach ($courses as $course) { ?>
                 <div class="col-lg-3 col-md-6">
-                 <a href="<?php echo site_url('father/course/typeEvaluation/'.$course['CodCurso']); ?>">
+                 <a href="<?php echo site_url('father/course/typeEvaluation/'.$course['CodCurso'].'/'.$codstudent); ?>">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">

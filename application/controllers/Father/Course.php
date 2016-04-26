@@ -24,17 +24,20 @@ class Course extends CI_Controller {
 		
 	}
 
-	public function typeEvaluation($idCourse=null)
+	public function typeEvaluation($idCourse=null,$idStudent=null)
 	{
 		//cargando vistas
 		$this->load->model('father/CourseModel');
 		//metodo del modelo
-		$typeEvaluations=$this->CourseModel->gettypeEvaluation($idCourse);	
+		$typeEvaluations=$this->CourseModel->gettypeEvaluation($idCourse,$idStudent);	
 		//variable a enviar	
 	//	echo ('<pre>');
 	//	print_r($typeEvaluations);
 	//	echo ('<pre>');
 		$typeEvaluations['typeEvaluations']=$typeEvaluations;
+		$typeEvaluations['idCourse']=$idCourse;
+		$typeEvaluations['idStudent']=$idStudent;
+
 		//cargar vista
 		$this->load->view('father/header_view');
 		$this->load->view('father/navigation_view');
@@ -45,23 +48,28 @@ class Course extends CI_Controller {
 	}
 
 
-		public function Score($idtypeEvaluation=null)
+		public function Score()
 	{
-		//cargando vistas
-	//	$this->load->model('father/CourseModel');
-		//metodo del modelo
-	//	$typeEvaluations=$this->CourseModel->gettypeEvaluation($idCourse);	
-		//variable a enviar	
-	//	echo ('<pre>');
-	//	print_r($typeEvaluations);
-	//	echo ('<pre>');
-	//	$typeEvaluations['typeEvaluations']=$typeEvaluations;
-		//cargar vista
-		$this->load->view('father/header_view');
-		$this->load->view('father/navigation_view');
-		$this->load->view('father/wrapper_view');
-		$this->load->view('father/course/Score_view');
-		$this->load->view('father/footer_view');
+		if ($this->input->server('REQUEST_METHOD') == 'GET')
+		{
+
+			//echo  ;
+		}else if ($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+
+			$response=json_decode($this->input->post('codEstudiante'),true);
+			
+			$this->load->model('father/CourseModel');
+			$codEstudiante=$response['codEstudiante'];
+			$codCurso=$response['codCurso'];
+			$trimestre=$response['trimestre'];
+			$codTipoEvaluacion=$response['codTipoEvaluacion'];
+
+			$response=$this->CourseModel->getScore($codEstudiante,$codCurso,$trimestre,$codTipoEvaluacion);	
+
+			echo $response[0]['DescripEvaluacion'];
+		}
+		
 		
 	}
 
