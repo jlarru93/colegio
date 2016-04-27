@@ -1,3 +1,14 @@
+             <?php 
+                $nameStudent=str_replace('_',' ',urldecode($nameStudent));
+                $nameCurso=str_replace('_',' ',urldecode($nameCurso));
+                $nameTeacher=str_replace('_',' ',urldecode($nameTeacher));
+
+             ?>
+
+
+
+
+
               <div id="page-wrapper">
                <div class="row">
                 <div class="col-lg-12">
@@ -9,7 +20,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Emphasis Classes
+                        <?php echo $nameStudent.' / '.$nameCurso.' / '.$nameTeacher?>
                     </div>
                     <div class="panel-body">
 
@@ -28,16 +39,21 @@
                                     </tr>
                                 </thead>
 
+                                 <tbody id="notas_record">
+                                     
+                                    
                                 <?php  foreach ($typeEvaluations as $typeEvaluation): ?>
                                     <tr>
-                                        <th><?php echo($typeEvaluation['DescripTipoEvaluacion']);?></th>
-                                        <th><button name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"1","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Primer']);?></button></th>
-                                        <th><button name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"2","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Segundo']);?></button></th>
-                                        <th><button name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"3","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Tercero']);?></button></th>
+                                        <td><?php echo($typeEvaluation['DescripTipoEvaluacion']);?></th>
+                                        <td><button class="btn btn-primary btn-lg btn-block" name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"1","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Primer']);?></button></td>
+                                        <td><button class="btn btn-primary btn-lg btn-block" name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"2","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Segundo']);?></button></td>
+                                        <td><button class="btn btn-primary btn-lg btn-block" name='{"CodTipoEvaluacion":"<?php echo($typeEvaluation['CodTipoEvaluacion'] );?>","trimestre":"3","idCourse":"<?php echo($idCourse);?>","idStudent":"<?php echo($idStudent);?>"}' id="link" href="#"><?php echo round($typeEvaluation['Tercero']);?></button></td>
                                     </tr>
 
+                                
 
                                 <?php endforeach ?>
+                                </tbody>
                             </div>
 
                             <div class="table-responsive">
@@ -53,6 +69,7 @@
                                      
                                     </tbody>
 
+                                </table>
                                 </div>
 
 

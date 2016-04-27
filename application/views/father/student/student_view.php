@@ -9,10 +9,15 @@
             
             <div class="row">
 
-            <?php foreach ($Students as $Student) { 
+            <?php foreach ($Students as $Student) {
+            $gradoyseccion= substr($Student['CodGrado'],0,-1).'°'.$Student['NomSeccion'];
+            $nivel=(substr($Student['CodGrado'],-1)=='S')?'Secundaria':'Primaria';
+            $allname= $Student['NomEstudiante']. $Student['ApePaternoEstudiante']. $Student['ApeMaternoEstudiante'];
+            
+            $link=site_url('father/Student/course_student/'.$Student['CodEstudiante']).'/'.str_replace('+','_',urlencode($allname));
             ?>
                 <div class="col-lg-3 col-md-6">
-             <a href="<?php echo site_url('father/Student/course_student/'.$Student['CodEstudiante']); ?>">
+             <a href="<?php echo  $link; ?>">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -20,17 +25,15 @@
                                     <i class="glyphicon glyphicon-book fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">4°B</div>
-                                  
+                                    <div class="huge"><?php echo $gradoyseccion;?></div>
+                                  <div><?php echo $nivel;?></div>
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo site_url('father/Student/course_student/'.$Student['CodEstudiante']); ?>">
+                        <a href="<?php echo  $link;?>">
                             <div class="panel-footer">
                                 <span class="pull-left">
-                                <?php echo $Student['NomEstudiante'];?>
-                                <?php echo $Student['ApePaternoEstudiante'];?>
-                                <?php echo $Student['ApeMaternoEstudiante'];?>
+                                <?php echo $allname;?>
 
 
                                 </span>

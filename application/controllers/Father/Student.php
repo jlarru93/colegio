@@ -26,7 +26,7 @@ class student extends CI_Controller {
 
 		$Students=$this->StudentModel->getStudents();
 		$Students['Students']=$Students;
-
+	
 
 		$this->load->view('father/header_view');
 		$this->load->view('father/navigation_view',$Students);
@@ -35,7 +35,7 @@ class student extends CI_Controller {
 		$this->load->view('father/footer_view');
 	}
 
-		public function course_student($codstudent=null)
+		public function course_student($codstudent=null,$nameStudent=null)
 	{
 
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
@@ -48,6 +48,7 @@ class student extends CI_Controller {
 			
 			$courses['courses']=$courses;
 			$courses['codstudent']=$codstudent;
+			$courses['nameStudent']=$nameStudent;
 
 			$this->load->view('father/header_view');
 			$this->load->view('father/navigation_view');

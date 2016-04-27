@@ -24,7 +24,7 @@ class Course extends CI_Controller {
 		
 	}
 
-	public function typeEvaluation($idCourse=null,$idStudent=null)
+	public function typeEvaluation($idCourse=null,$idStudent=null,$nameStudent=null,$nameTeacher=null,$nameCurso=null)
 	{
 		//cargando vistas
 		$this->load->model('father/CourseModel');
@@ -37,6 +37,10 @@ class Course extends CI_Controller {
 		$typeEvaluations['typeEvaluations']=$typeEvaluations;
 		$typeEvaluations['idCourse']=$idCourse;
 		$typeEvaluations['idStudent']=$idStudent;
+
+		$typeEvaluations['nameStudent']=$nameStudent;
+		$typeEvaluations['nameTeacher']=$nameTeacher;
+		$typeEvaluations['nameCurso']=$nameCurso;
 
 		//cargar vista
 		$this->load->view('father/header_view');

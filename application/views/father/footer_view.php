@@ -30,6 +30,18 @@
 
             $('button').on('click',function(e){
 
+                $('#notas_record tr').each(function() {
+
+                       
+                        $(this).children('td').each(function(){
+
+                            $(this).children('button').attr('class', 'btn btn-primary btn-lg btn-block');     
+                        });
+
+                });
+
+                $(this).attr('class', 'btn btn-info btn-lg btn-block');
+
 
 
                 $('#notas_trimestral tr').each(function() {
