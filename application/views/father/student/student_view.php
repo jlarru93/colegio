@@ -1,3 +1,4 @@
+       
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -15,6 +16,7 @@
             $allname= $Student['NomEstudiante']. $Student['ApePaternoEstudiante']. $Student['ApeMaternoEstudiante'];
             
             $link=site_url('father/Student/course_student/'.$Student['CodEstudiante']).'/'.str_replace('+','_',urlencode($allname));
+            $link_teacher=site_url('father/Student/teachers_student/'.$Student['CodEstudiante']).'/'.str_replace('+','_',urlencode($allname));
             ?>
                 <div class="col-lg-3 col-md-6">
              <a href="<?php echo  $link; ?>">
@@ -43,7 +45,9 @@
                         </a>
                     </div>
                      </a>
+                <a href="<?php echo  $link_teacher; ?>" type="button" class="btn btn-success btn-lg btn-block">Ver Profesores</a>
                 </div>
+
 
    
             <?php }
@@ -54,4 +58,5 @@
 
             <!-- /.row -->
         </div>
+        
         <!-- /#page-wrapper -->

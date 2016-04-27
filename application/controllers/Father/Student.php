@@ -29,7 +29,7 @@ class student extends CI_Controller {
 	
 
 		$this->load->view('father/header_view');
-		$this->load->view('father/navigation_view',$Students);
+		$this->load->view('father/navigation_view');
 		$this->load->view('father/wrapper_view');
 		$this->load->view('father/student/student_view',$Students);
 		$this->load->view('father/footer_view');
@@ -63,6 +63,32 @@ class student extends CI_Controller {
 		}
 	}
 
+		public function teachers_student($codstudent=null,$nameStudent=null)
+	{
+
+		if ($this->input->server('REQUEST_METHOD') == 'GET')
+		{
+				//cargar el modelo
+			$this->load->model('father/StudentModel');
+			//agregar alumno
+			$teachers=$this->StudentModel->getTeachers($codstudent);
+			
+			$teachers['teachers']=$teachers;
+			$teachers['codstudent']=$codstudent;
+			$teachers['nameStudent']=$nameStudent;
+
+			$this->load->view('father/header_view');
+			$this->load->view('father/navigation_view');
+			$this->load->view('father/wrapper_view');
+			$this->load->view('father/student/teacher_student_view',$teachers);
+			$this->load->view('father/footer_view');
+
+		}else if ($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+
+
+		}
+	}
 
 
 }

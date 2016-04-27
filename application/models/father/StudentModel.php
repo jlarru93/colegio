@@ -5,9 +5,6 @@ include('httpful.phar');
 class StudentModel extends CI_Model {
 
 
-
-	var $uri_web='http://190.117.118.40:4444/WSColegio/rest';
-	
 	
 	public function getStudents(){
 
@@ -36,6 +33,14 @@ class StudentModel extends CI_Model {
         $response=json_decode($response,true);
         return $response;
      }  
+
+       public function  getTeachers($codstudent){
+
+        $ur=web_service_uri.'/estudiante/listarProfesores?codEstudiante='.$codstudent;
+        $response = \Httpful\Request::get($ur)->send();
+        $response=json_decode($response,true);
+        return $response;
+     }
 
 
 }

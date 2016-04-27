@@ -245,16 +245,9 @@
                         <li>
                             <a href="<?php echo site_url('father/student/index');?>"><i class="fa fa-dashboard fa-fw"></i> Mis Hijos</a>
                         </li>
-                        <li>
-                            <a href="<?php echo site_url('father/student/index');?>"><i class="fa fa-bar-chart-o fa-fw"></i> padres de familia</a>
-                            
-                        </li>
+                     
                         <li>
                             <a href="<?php echo site_url('father/student/index');?>"><i class="fa fa-table fa-fw"></i> notificaciones</a>
-                        </li>
-              
-                        <li>
-                            <a href="<?php echo site_url('father/student/index');?>"><i class="fa fa-wrench fa-fw"></i> profesores</a>  
                         </li>
    
                     </ul>
