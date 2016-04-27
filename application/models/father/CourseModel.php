@@ -13,6 +13,7 @@ class CourseModel extends CI_Model {
 
 		$ur=web_service_uri.'/evaluacion/promedioPorCriterio?codEstudiante='.$idStudent.'&codCurso='.$idcurso;
         $response = \Httpful\Request::get($ur)->send();
+
         $response=json_decode($response,true);
         return $response;
 	}
@@ -20,9 +21,10 @@ class CourseModel extends CI_Model {
 	   public function getScore($codEstudiante=null,$codCurso=null,$trimestre=null,$codTipoEvaluacion=null)
 	{
 
+		//$ur=web_service_uri.'/evaluacion/detalleNota?codEstudiante='.$codEstudiante.'&codCurso='.$codCurso.'&trimestre='.$trimestre.'&codTipoEvaluacion='.$codTipoEvaluacion;
 		$ur=web_service_uri.'/evaluacion/detalleNota?codEstudiante='.$codEstudiante.'&codCurso='.$codCurso.'&trimestre='.$trimestre.'&codTipoEvaluacion='.$codTipoEvaluacion;
         $response = \Httpful\Request::get($ur)->send();
-        $response=json_decode($response,true);
+        //$response=json_decode($response,true);
         return $response;
 	}
    

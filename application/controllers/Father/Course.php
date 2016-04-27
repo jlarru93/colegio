@@ -60,14 +60,14 @@ class Course extends CI_Controller {
 			$response=json_decode($this->input->post('codEstudiante'),true);
 			
 			$this->load->model('father/CourseModel');
-			$codEstudiante=$response['codEstudiante'];
-			$codCurso=$response['codCurso'];
+			$codEstudiante=$response['idStudent'];
+			$codCurso=$response['idCourse'];
 			$trimestre=$response['trimestre'];
-			$codTipoEvaluacion=$response['codTipoEvaluacion'];
+			$codTipoEvaluacion=$response['CodTipoEvaluacion'];
 
 			$response=$this->CourseModel->getScore($codEstudiante,$codCurso,$trimestre,$codTipoEvaluacion);	
 
-			echo $response[0]['DescripEvaluacion'];
+			echo $response;
 		}
 		
 		
