@@ -66,7 +66,7 @@
                                                   $notas[$count]['nota']=$score['Nota'];//
                                                    ?>
                                                    <td class="center" padding="5px"> 
-                                                        <input class="form-control" value="<?php echo $score['Nota'];?>" name="<?php echo ''.$score['IdEvaluacion'];?>" required> 
+                                                        <input class="form-control" value="<?php echo $score['Nota'];?>" min="1" max="20" onkeypress="return isNumberKey(event)" name="<?php echo ''.$score['IdEvaluacion'];?>" required> 
 
                                                    </td>
                                                  <?php
