@@ -2,15 +2,15 @@
 
 include('httpful.phar');
 
-class ClassRoomModel extends CI_Model {
+class StudentModel extends CI_Model {
+
 
 
 
 	
-	public function getclassrooms(){
-			$codmaster= json_decode($_COOKIE["user_data_cookie"],true)['codProfesor'];			
+	public function getStudentFathers($idSeccion=null){			
 			//var_dump($_COOKIE["user_data_cookie"]) ;
-            $ur=web_service_uri.'/profesor/listarSecciones?codProfesor='.$codmaster;
+            $ur=web_service_uri.'/profesor/listarAlumnosPorSeccion?idSeccion='.$idSeccion;
             $response = \Httpful\Request::get($ur)->send();
             $response=json_decode($response,true);
             return $response;

@@ -32,7 +32,13 @@
                         </a>
                     </div>
                      </a>
+                              <div class="panel-heading">                                
+                                    <a href="<?php echo site_url('Master/Student/index/'.$classroom['IdSeccion']); ?>" class="btn btn-success btn-lg btn-block">
+                                        alumnos y apoderados
+                                    </a>
+   </div>
                 </div>
+
  <?php } ?>
              
  
