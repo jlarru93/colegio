@@ -47,7 +47,7 @@
 
 
             //ocultar secundaria
-                document.getElementById('secundaria').style.display = 'none';
+           //     document.getElementById('secundaria').style.display = 'none';
         });
     </script>
     <!-- datepicker -->

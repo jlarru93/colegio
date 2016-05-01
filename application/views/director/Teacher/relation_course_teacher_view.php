@@ -48,36 +48,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td> 
-                                                1
-                                            </td>
-                                            <td>
-                                                <input type="checkbox" value="">
-                                            </td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                        </tr>
-                                          <tr>
+                                       <tr>
                                             <td> 
                                                2
                                             </td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                        </tr>
-                                          <tr>
-                                            <td>3</td>
-                                            <td><input type="checkbox" disabled="" checked="true" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
+                                            <td>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td><input type="checkbox" value=""></td>
                                         </tr>
+                                  
+                                       
                                     
                                     </tbody>
                                 </table>
