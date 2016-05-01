@@ -32,25 +32,7 @@
     <!-- Datepicker -->
     <link href="<?php echo base_url() ;?>css/datepicker.css" rel="stylesheet" type="text/css">
 
-    <style type="text/css">
-        table, tr, td, th {
-          position: relative;
-          padding: 10px;
-      }
-
-      th span {
-          transform-origin: 0 50%;
-          transform: rotate(-90deg); 
-          white-space: nowrap; 
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-      }
-
-
-  </style>
-
+   
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

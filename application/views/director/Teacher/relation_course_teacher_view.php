@@ -15,35 +15,35 @@
                         <div class="panel-body">
 
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     
-                                    <form role="form">
+                                    
                                  
                                   
                                         <div class="form-group">
                                         <label>Selecione el nivel</label>
-                                            <select class="form-control">
-                                                <option>primaria </option>
-                                                <option>secundaria </option>
+                                            <select onchange="getLevel(this)" class="form-control">
+                                                <option value="P">primaria </option>
+                                                <option value="S">secundaria </option>
                                             </select>
 
+
+
+
                                         </div>
+                            <div  id="secundaria">
+                            <form role="form">
                                 <div class="table-responsive">
                                     <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th ><span># grado</span></th>
-                                            <th ><span>First Name</span></th>
-                                            <th ><span>First Name</span></th>
-                                            <th ><span>First Name</span></th>
+                                            <th ><span>grado</span></th>
+                                            <th ><span>1</span></th>
+                                            <th ><span>2</span></th>
+                                            <th ><span>3</span></th>
                                            
-                                            <th ><span>First Name</span></th>
-                                            <th ><span>First Name</span></th>
-                                            <th ><span>First Name</span></th>
-
-                                            <th ><span>First Name</span></th>
-                                            <th ><span>First Name</span></th>
-                                            <th ><span>First Name</span></th>
+                                            <th ><span>4</span></th>
+                                            <th ><span>5</span></th>
                                            
                                         </tr>
                                     </thead>
@@ -59,19 +59,11 @@
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
                                         </tr>
                                           <tr>
                                             <td> 
                                                2
                                             </td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
@@ -85,10 +77,6 @@
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
                                             <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
-                                            <td><input type="checkbox" value=""></td>
                                         </tr>
                                     
                                     </tbody>
@@ -98,26 +86,69 @@
                                        
                                   
                                         <div class="form-group">
-                                            <button type="submit" disabled class="btn btn-primary">terminar</button>
+                                            <button type="submit" onclick="mostrar()" class="btn btn-primary">terminar</button>
                                         </div>
                                     </form>
-                                                                  
+                                    </div>
+                                              
+
+
+
+
+
+
+
+    <div class="col-lg-2" id="primaria">
+    <div class="table-responsive">
+                                    <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th ><span>grado</span></th>
+                                            <th ><span>First Name</span></th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> 
+                                                1
+                                            </td>
+                                           
+                                            <td><input type="checkbox" value=""></td>
+                                        </tr>
+                                          <tr>
+                                            <td> 
+                                               2
+                                            </td>
+                                            
+                                            <td><input type="checkbox" value=""></td>                                        </tr>
+                                          <tr>
+                                            <td>3</td>
+                                            <td><input type="checkbox" value=""></td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+ <div class="form-group">
+                                            <button type="submit" onclick="ocultar()" class="btn btn-primary">terminar</button>
+                                        </div>
+                            <!-- /.table-responsive -->
+                            </div>           
+                                  
+                                       
+
+
+
+
+
+
+
+
+
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                      <h1>Informacion profesor</h1>
-                                       <div class="form-group">
-                                                <label for="disabledSelect">nombres del alumno</label>
-                                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
-                                        
-                                                <label for="disabledSelect">apellidos del alumno</label>
-                                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
-                                 
-                                                <label for="disabledSelect">fecha de nacimiento</label>
-                                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled>
-                                    </div>  
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
+                                                         <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->
                         </div>

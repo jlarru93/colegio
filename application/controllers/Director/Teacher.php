@@ -82,23 +82,64 @@ class Teacher extends CI_Controller {
 			$this->load->view('director/Teacher/add_teacher_view');
 			$this->load->view('director/footer_view');
 
+
+
+			
+
 		}
 	}
-		public function relation_course_teacher()
+		public function relation_course_teacher($idTeacher=null,$fullNameTeacher=null)
 	{
-		$this->load->view('director/header_view');
-		$this->load->view('director/navigation_view');
-		$this->load->view('director/wrapper_view');
-		$this->load->view('director/Teacher/relation_course_teacher_view');
-		$this->load->view('director/footer_view');
+			 if ($this->input->server('REQUEST_METHOD') == 'GET')
+		{
+			$this->load->model('director/CourseModel');
+			$couses=$this->CourseModel->GetAll();
+		
+			$couseHigh;
+			$count=0;
+			foreach ($couses as $couse) {
+				# code...
+				
+				if (substr($couse['CodGrado'], 1)=='S' ) {
+						$couseHigh[$count]['CodCurso']=$couse['CodCurso'];
+						$couseHigh[$count]['DescripCurso']=$couse['DescripCurso'];
+						$couseHigh[$count]['CodGrado']=$couse['CodGrado'];
+				}
+
+			$count++;
+
+
+			}
+			
+			//echo('<pre>');
+			//print_r($couseHigh);
+			//echo('</pre>');
+			$couseHigh['couseHigh']=$couseHigh;
+			$couseHigh['idTeacher']=$idTeacher;
+			$couseHigh['fullNameTeacher']=$fullNameTeacher;
+
+			$this->load->view('director/header_view');
+			$this->load->view('director/navigation_view');
+			$this->load->view('director/wrapper_view');
+			$this->load->view('director/Teacher/relation_course_teacher_view',$couseHigh);
+			$this->load->view('director/footer_view');
+		}
+		else if ($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+
+		}
 	}
 		public function course_teacher()
 	{
+
+
+
 		$this->load->view('director/header_view');
 		$this->load->view('director/navigation_view');
 		$this->load->view('director/wrapper_view');
 		$this->load->view('director/Teacher/course_teacher_view');
 		$this->load->view('director/footer_view');
+		
 	}
 	
 }

@@ -27,13 +27,22 @@
                                     </thead>
                                     <tbody>
 
-                                    <?php foreach ($teachers as $teacher) {
+                                    <?php 
+
+                                        echo('<pre>');print_r($teachers[0]);echo('<pre>');
+                                    foreach ($teachers as $teacher) {
+                                        $fullname=$teacher['nomProfesor'].' '.$teacher['apePaternoProfesor'].' '.$teacher['apeMaternoProfesor'];
+                                        $link1=site_url('Director/Teacher/course_teacher/'.$teacher['codProfesor']);
+
+
+                                        $link2=site_url('Director/Teacher/relation_course_teacher/'.$teacher['codProfesor'].'/'.str_replace('+','_',urlencode($fullname)));
+
                                         # code...
                                     ?>
                                         <tr class="odd gradeX">
                                             <td>
                                                 <?php
-                                                    echo $teacher['nomProfesor'].' '.$teacher['apePaternoProfesor'].' '.$teacher['apeMaternoProfesor'];
+                                                    echo $fullname;
                                                 ?>
 
                                             </td>
@@ -53,8 +62,8 @@
                                                 ?>
                                             </td>
                                             <td class="center">
-                                                <a href="<?php echo site_url('Director/Teacher/course_teacher/'.$teacher['codProfesor']); ?>" class="btn btn-primary btn-circle" role="button"><i class="glyphicon glyphicon-check"></i></a>
-                                                <a href="<?php echo site_url('Director/Teacher/relation_course_teacher'); ?>" class="btn btn-success btn-circle" role="button"><i class="fa fa-arrows-h"></i></a>                                                
+                                                <a href="<?php echo $link1; ?>" class="btn btn-primary btn-circle" role="button"><i class="glyphicon glyphicon-check"></i></a>
+                                                <a href="<?php echo $link2; ?>" class="btn btn-success btn-circle" role="button"><i class="fa fa-arrows-h"></i></a>                                                
                                                 <a href="<?php echo '#'; ?>" class="btn btn-info btn-circle" role="button"><i class="fa fa-check"></i></a> 
                                                 <a href="<?php echo '#'; ?>" class="btn btn-danger btn-circle" role="button"><i class="fa fa-times"></i></a> 
                                                 
