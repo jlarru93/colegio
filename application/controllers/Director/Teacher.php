@@ -131,14 +131,19 @@ class Teacher extends CI_Controller {
 					$llave=null;
 					foreach ($couseHigh2 as $key2 => $value2) {
 						if ($value2['DescripCurso']==$value['DescripCurso']) {
+
 							$llave=$key2;
+
 							break;
 						}
 					}
-					if ($llave!=null) {
+
+					if (!is_null($llave)) {
+						
 						$couseHigh2[$llave]['grades'][count($couseHigh2[$llave]['grades'])]= array('CodCurso' => $value['CodCurso'],'CodGrado'=>$value['CodGrado']);
 
 					}else{
+
 						$couseHigh2[$count]['DescripCurso']=$value['DescripCurso'];
 						$couseHigh2[$count]['grades'][$count2]= array('CodCurso' => $value['CodCurso'],'CodGrado'=>$value['CodGrado']);
 						$count++;
