@@ -115,7 +115,7 @@
                                                 <?php echo $key+1; ?>
                                             </td>
 
-                                            <td><input name="<?php echo $CodGrado ;?>" type="checkbox" value="<?php echo $gradeprimary; ?>"></td>
+                                            <td><input name="<?php echo $CodGrado ;?>" <?php if($gradeprimary['teach']=='TRUE'){echo 'checked';} ?> type="checkbox" value="<?php echo $gradeprimary['grade']; ?>"></td>
                                             <?php $CodGrado++; ?>
                                         </tr>
                                     <?php endforeach ?>

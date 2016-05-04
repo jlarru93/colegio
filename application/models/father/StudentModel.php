@@ -1,6 +1,6 @@
 <?php
 
-include('httpful.phar');
+require_once('httpful.phar');
 
 class StudentModel extends CI_Model {
 

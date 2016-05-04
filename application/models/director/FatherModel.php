@@ -1,5 +1,5 @@
 <?php
-include('httpful.phar');
+require_once('httpful.phar');
 class FatherModel extends CI_Model {
 
 

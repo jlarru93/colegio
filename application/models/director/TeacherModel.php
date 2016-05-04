@@ -23,6 +23,18 @@ class TeacherModel extends CI_Model {
     return 'fallo';
   }
 } 
+ public function  relacionar_curso_profesor($teacher=null)
+  {
+    $ur=web_service_uri.'/profesor/asociarCurso';
+    try {                 
+     $response = \Httpful\Request::post($ur)->addHeader('Content-Type', 'application/json;charset=UTF-8')->body($teacher)->send();
+     $response=json_decode($response,true);
+     return $response;
+   } catch (Exception $e) {
+    return 'fallo';
+  }
+} 
+
 
 
 public function  GetAll()
@@ -39,8 +51,8 @@ public function  GetAll()
   }
 }   
 
-public function getCurses($codTeacher=null){
-  $ur=web_service_uri.'/profesor/listarCursosImpartidos?codProfesor='.$codTeacher;
+public function getCurses($codTeacher=null,$nivel=null){
+  $ur=web_service_uri.'/profesor/listarCursosImpartidos?codProfesor='.$codTeacher.'&nivel='.$nivel;
   $response=null;
   
   try {                 

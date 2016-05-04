@@ -89,29 +89,52 @@ class Teacher extends CI_Controller {
 		}
 	}
 
-
+function validaar_cursos_primaria(){
+	return "das";
+}
 
 
 	public function relation_course_teacher($idTeacher=null,$fullNameTeacher=null)
 	{
-		$this->load->model('director/CourseModel');
+			$this->load->model('director/CourseModel');
 			$this->load->model('director/TeacherModel');
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
 		{
 			
 			$couses=$this->CourseModel->GetAll();
 			//cursos que el profesor ya enseñ
-			$couses_teacher=$this->TeacherModel->getCurses($idTeacher);
+			$couses_teacher=$this->TeacherModel->getCurses($idTeacher,'S');
+			$couses_teacher_primary=$this->TeacherModel->getCurses($idTeacher,'P');
 
+			print_r($this->suma());
 			$couseHigh;
 			$couseHigh2 = array();
 			$count=0;
-			$gradesprimary[0]='1P';
-			$gradesprimary[1]='2P';
-			$gradesprimary[2]='3P';
-			$gradesprimary[3]='4P';
-			$gradesprimary[4]='5P';
-			$gradesprimary[5]='6P';
+			
+			$gradesprimary = array('0' =>array('grade' => '1P', 'teach'=>'FALSE') ,
+									'1' =>array('grade' => '2P', 'teach'=>'FALSE'),
+									'2' =>array('grade' => '3P', 'teach'=>'FALSE'),
+									'3' =>array('grade' => '4P', 'teach'=>'FALSE'),
+									'4' =>array('grade' => '5P', 'teach'=>'FALSE'),
+									'5' =>array('grade' => '6P', 'teach'=>'FALSE'));
+
+			foreach ($gradesprimary as $key =>  $value) {
+				$f=false;
+				foreach ($couses_teacher_primary as $key2 => $value2) {
+					if ($value2['CodGrado']==$value['grade']) {
+						$f=true;
+						break;
+					}
+				}
+				if ($f) {
+					# code...
+					$gradesprimary[$key]['teach']='TRUE';
+				}
+				
+
+			}
+
+
 			foreach ($couses as $couse) {
 				# code...
 				
@@ -143,9 +166,13 @@ class Teacher extends CI_Controller {
 
 
 					$couseHigh2[$count]['DescripCurso']=$value['DescripCurso'];
-					if($teach)
-					$couseHigh2[$count]['grades'][0]= array('CodCurso' => $value['CodCurso'],'CodGrado'=>$value['CodGrado'],'teach'=>'TRUE');
+					if($teach){
+					$couseHigh2[$count]['grades'][0]= array('CodCurso' => $value['CodCurso'],'CodGrado'=>$value['CodGrado'],'teach'=>'TRUE');	
+				}else{
 					$couseHigh2[$count]['grades'][0]= array('CodCurso' => $value['CodCurso'],'CodGrado'=>$value['CodGrado'],'teach'=>'FALSE');
+				}
+					
+					
 					$count++;
 				}else{
 					$llave=null;
@@ -199,18 +226,14 @@ class Teacher extends CI_Controller {
 					}
 				}
 			}
-
-			
-			
-
 			//echo('<pre>');
 			//print_r($couseHigh2);
 			//echo('</pre>');
-
 			$couseHigh['cousesHigh']=$couseHigh2;
 			$couseHigh['idTeacher']=$idTeacher;
 			$couseHigh['fullNameTeacher']=str_replace('_', ' ', urldecode($fullNameTeacher));
 			$couseHigh['gradesprimary']=$gradesprimary;
+			$couseHigh['couses_teacher_primary']=$couses_teacher_primary;
 			
 			$this->load->view('director/header_view');
 			$this->load->view('director/navigation_view');
@@ -227,17 +250,28 @@ class Teacher extends CI_Controller {
 
 				for ($i=0,$indice=0; $i < $count_CodCurso; $i++) { 
 					if (!is_null($this->input->post($i))) {
-						$teacher_courses[$indice]['idTeacher']=$idTeacher;
-						$teacher_courses[$indice]['CodCurso']=$this->input->post($i);
+						$teacher_courses[$indice]['codProfesor']=$idTeacher;
+						$teacher_courses[$indice]['codCurso']=$this->input->post($i);
+						$teacher_courses[$indice]['estadoProfesorCurso']=0;
 						$indice++;
 					}
 				}
 				echo('<pre>');
-				print_r($teacher_courses);
+				print_r(json_encode($teacher_courses));
 				echo('</pre>');
+				$respuesta=$this->TeacherModel->relacionar_curso_profesor(json_encode($teacher_courses));
+				var_dump($respuesta);
 			}else if ($nivel=='P') {
-				# code...
-				echo "11";
+				$idTeacher=$this->input->post('idTeacher');
+				for ($i=0,$indice=0; $i <6 ; $i++) { 
+					if (!is_null($this->input->post($i))) {
+					$teacher_grades[$indice]['codProfesor']=$idTeacher;
+					$teacher_grades[$indice]['codGrado']=$this->input->post($i);
+					$indice++;
+					 }
+				}
+
+				echo json_encode($teacher_grades);
 			}
 
 		}

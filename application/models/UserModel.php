@@ -1,5 +1,5 @@
 <?php
-include('httpful.phar');
+require_once('httpful.phar');
 //require_once('uri.php');
 class UserModel extends CI_Model {
 
