@@ -18,6 +18,8 @@ class Course extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+
 	public function index($idsection=null)
 	{
 
@@ -28,6 +30,9 @@ class Course extends CI_Controller {
 	{
 		//cargando vistas
 		$this->load->model('father/CourseModel');
+
+		
+		
 		//metodo del modelo
 		$typeEvaluations=$this->CourseModel->gettypeEvaluation($idCourse,$idStudent);	
 		//variable a enviar	
@@ -41,10 +46,14 @@ class Course extends CI_Controller {
 		$typeEvaluations['nameStudent']=$nameStudent;
 		$typeEvaluations['nameTeacher']=$nameTeacher;
 		$typeEvaluations['nameCurso']=$nameCurso;
+		//cargar notificaciones
+		$this->load->model('father/NotificationModel');
+		$notificaion=$this->NotificationModel->getNotification();
+		$notificaion['notificaions']=$notificaion;
 
 		//cargar vista
 		$this->load->view('father/header_view');
-		$this->load->view('father/navigation_view');
+		$this->load->view('father/navigation_view',$notificaion);
 		$this->load->view('father/wrapper_view');
 		$this->load->view('father/course/type_Evaluation_view',$typeEvaluations);
 		$this->load->view('father/footer_view');
@@ -63,7 +72,7 @@ class Course extends CI_Controller {
 
 			$response=json_decode($this->input->post('codEstudiante'),true);
 			
-			$this->load->model('father/CourseModel');
+				$this->load->model('father/CourseModel');
 			$codEstudiante=$response['idStudent'];
 			$codCurso=$response['idCourse'];
 			$trimestre=$response['trimestre'];

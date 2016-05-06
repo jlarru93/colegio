@@ -28,8 +28,6 @@
                                     <tbody>
 
                                     <?php 
-
-                                        echo('<pre>');print_r($teachers[0]);echo('<pre>');
                                     foreach ($teachers as $teacher) {
                                         $fullname=$teacher['nomProfesor'].' '.$teacher['apePaternoProfesor'].' '.$teacher['apeMaternoProfesor'];
                                         $link1=site_url('Director/Teacher/course_teacher/'.$teacher['codProfesor']);

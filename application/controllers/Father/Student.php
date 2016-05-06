@@ -22,20 +22,24 @@ class student extends CI_Controller {
 	{
 
 		$this->load->model('father/StudentModel');
-	
+
 
 		$Students=$this->StudentModel->getStudents();
 		$Students['Students']=$Students;
-	
 
+		//cargar notificaciones
+		$this->load->model('father/NotificationModel');
+		$notificaion=$this->NotificationModel->getNotification();
+		$notificaion['notificaions']=$notificaion;		
+		//cargar vista
 		$this->load->view('father/header_view');
-		$this->load->view('father/navigation_view');
+		$this->load->view('father/navigation_view',$notificaion);
 		$this->load->view('father/wrapper_view');
 		$this->load->view('father/student/student_view',$Students);
 		$this->load->view('father/footer_view');
 	}
 
-		public function course_student($codstudent=null,$nameStudent=null)
+	public function course_student($codstudent=null,$nameStudent=null)
 	{
 
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
@@ -50,8 +54,14 @@ class student extends CI_Controller {
 			$courses['codstudent']=$codstudent;
 			$courses['nameStudent']=$nameStudent;
 
+
+			//cargar notificaciones
+			$this->load->model('father/NotificationModel');
+			$notificaion=$this->NotificationModel->getNotification();
+			$notificaion['notificaions']=$notificaion;		
+			//cargar vista
 			$this->load->view('father/header_view');
-			$this->load->view('father/navigation_view');
+			$this->load->view('father/navigation_view',$notificaion);
 			$this->load->view('father/wrapper_view');
 			$this->load->view('father/student/course_student_view',$courses);
 			$this->load->view('father/footer_view');
@@ -63,7 +73,7 @@ class student extends CI_Controller {
 		}
 	}
 
-		public function teachers_student($codstudent=null,$nameStudent=null)
+	public function teachers_student($codstudent=null,$nameStudent=null)
 	{
 
 		if ($this->input->server('REQUEST_METHOD') == 'GET')
@@ -77,8 +87,15 @@ class student extends CI_Controller {
 			$teachers['codstudent']=$codstudent;
 			$teachers['nameStudent']=$nameStudent;
 
+
+
+			//cargar notificaciones
+			$this->load->model('father/NotificationModel');
+			$notificaion=$this->NotificationModel->getNotification();
+			$notificaion['notificaions']=$notificaion;		
+			//cargar vista
 			$this->load->view('father/header_view');
-			$this->load->view('father/navigation_view');
+			$this->load->view('father/navigation_view',$notificaion);
 			$this->load->view('father/wrapper_view');
 			$this->load->view('father/student/teacher_student_view',$teachers);
 			$this->load->view('father/footer_view');

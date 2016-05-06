@@ -9,6 +9,8 @@
 
 
 
+<!-- Scroll bar present and enabled -->        
+ 
               <div id="page-wrapper">
                <div class="row">
                 <div class="col-lg-12">

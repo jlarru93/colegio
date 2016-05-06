@@ -33,7 +33,13 @@
     <link href="<?php echo base_url() ;?>css/datepicker.css" rel="stylesheet" type="text/css">
 
     
-
+<style type="text/css">
+    .scrollable-menu {
+    height: auto;
+    max-height: 400px;
+    overflow-x: hidden;
+}
+</style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
