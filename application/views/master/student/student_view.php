@@ -1,7 +1,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Alumnos</h1>
+                    <h1 class="page-header">Alumnos y apoderados</h1>
                 </div>
                 <!-- /.col-lg-12 -->             
             </div>
@@ -14,7 +14,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-alumno-apoderado">
                                     <thead>
                                         <tr>
                                             <th>nombre alumno</th>

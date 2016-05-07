@@ -40,7 +40,7 @@
 					
 				}
 
-				public function typeEvaluation($idCourse=null,$idsection=null)
+				public function typeEvaluation($idCourse=null,$idsection=null,$course_name=null)
 				{
 
 
@@ -50,11 +50,12 @@
 					$typeEvaluations=$this->CourseModel->gettypeEvaluation($idCourse);	
 					//variable a enviar	
 				//	echo ('<pre>');
-				//	print_r($typeEvaluations);
+				//print_r($typeEvaluations);
 				//	echo ('<pre>');
 					$typeEvaluations['typeEvaluations']=$typeEvaluations;
 					$typeEvaluations['idCourse']=$idCourse;
 					$typeEvaluations['idsection']=$idsection;
+					$typeEvaluations['course_name']=$course_name;
 					//cargar vista
 					$this->load->view('master/header_view');
 					$this->load->view('master/navigation_view');
@@ -65,7 +66,7 @@
 				}
 
 
-				public function Score($idtypeEvaluation=null,$idCourse=null,$idsection=null,$DescripTipoEvaluacion=null)
+				public function Score($idtypeEvaluation=null,$idCourse=null,$idsection=null,$DescripTipoEvaluacion=null,$course_name=null)
 				{
 					$this->load->model('master/CourseModel');
 					//metodo del modelo
@@ -74,6 +75,7 @@
 					//variable a enviar	
 					$Evaluations['Evaluations']=$Evaluations;
 					$Evaluations['DescripTipoEvaluacion']= $DescripTipoEvaluacion;
+					$Evaluations['course_name']=$course_name;
 				//	$Evaluations['codTipoEvaluacion']= $idtypeEvaluation;
 				//	$Evaluations['codCurso']= $idCourse;
 			//		$Evaluations['idSeccion']= $idsection;
@@ -133,6 +135,7 @@
 						//variable a enviar	
 						$Evaluations['Evaluations']=$Evaluations;
 						$Evaluations['DescripTipoEvaluacion']= $DescripTipoEvaluacion;
+						$Evaluations['course_name']=$course_name;
 						$this->load->view('master/header_view');
 						$this->load->view('master/navigation_view');
 						$this->load->view('master/wrapper_view');

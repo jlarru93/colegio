@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Colegio</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ;?>bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">

@@ -24,9 +24,21 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
         $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
+            $('#dataTables-alumno-apoderado').DataTable({
+                  "language": {
+                "lengthMenu": "mostrar _MENU_ alumnos por pagina",
+                "zeroRecords": "Disculpe - no se encontro ningun resultado",
+                "info": "pagina _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "sSearch": "buscar",
+                "oPaginate": {
+                    "sNext": "siguiente",
+                    "sPrevious": "anterior"
+                }
+            }
             });
+
 
 
         });

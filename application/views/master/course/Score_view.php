@@ -1,7 +1,7 @@
    <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Lógico Matemático</h1>
+            <h1 class="page-header"><?php echo str_replace('_',' ',urldecode($DescripTipoEvaluacion)); ?></h1>
         </div>
         <!-- /.col-lg-12 -->             
     </div>
@@ -11,7 +11,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">                                
-                  <?php  echo str_replace('_',' ',urldecode($DescripTipoEvaluacion))  ;?>
+                  <?php  echo str_replace('_',' ',urldecode($course_name)); ?>
               </div>
               <!-- /.panel-heading -->
               <div class="panel-body">
@@ -22,7 +22,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Agregar nota
-                            <a id="icol" visibility="hidden" title="Agregar" class="btn btn-primary" role="button"><i class="glyphicon glyphicon-check"></i></a>
+                            <a id="icol" visibility="hidden" title="Agregar nota" class="btn btn-primary" role="button">Agregar nota</a>
                             <input id="col" placeholder="Ingrese nombre de nota"/>
 
                             <button type="submit" class="btn btn-primary">Grabar</button>

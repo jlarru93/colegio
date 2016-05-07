@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Colegio 5130</a>
+                <a class="navbar-brand" href="index.html">Colegio</a>
             </div>
             <!-- /.navbar-header -->
    
@@ -28,9 +28,9 @@
                             <a href="#<?php echo($value['IdEvaluacion']); ?>">
                                 <div>
                                 
-                                    <strong>John Smith</strong>
+                                    <strong>Matematica</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>prof(a).Jésica Fernanda </em>
                                     </span>
                                 </div>
                                 <div><?php echo($value['Mensaje']); ?></div>
@@ -124,9 +124,7 @@ echo $interval->format('hace %a días %H horas %I minutos'); ?></span>
                             <a href="<?php echo site_url('father/student/index');?>"><i class="fa fa-dashboard fa-fw"></i> Mis Hijos</a>
                         </li>
                      
-                        <li>
-                            <a href="<?php echo site_url('father/student/index');?>"><i class="fa fa-table fa-fw"></i> notificaciones</a>
-                        </li>
+                       
    
                     </ul>
                 </div>

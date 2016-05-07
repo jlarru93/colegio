@@ -20,9 +20,14 @@
     <!-- /.row -->
     
    <div class="row">
-       <?php foreach ($courses as $course) { ?>
+       <?php foreach ($courses as $course) { 
+
+
+        $course_name=str_replace('+','_',urlencode($course['DescripCurso']));
+        $link=site_url('Master/Course/typeEvaluation/'.$course['CodCurso'].'/'.$idsection.'/'.$course_name);
+        ?>
        <div class="col-lg-3 col-md-6">
-           <a href="<?php echo site_url('Master/Course/typeEvaluation/'.$course['CodCurso'].'/'.$idsection); ?>">
+           <a href="<?php echo  $link ; ?>">
             <div class="panel panel-green">
                 <div class="panel-heading">
                     <div class="row">
@@ -35,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?php echo site_url('Master/Course/typeEvaluation/'.$course['CodCurso'].'/'.$idsection); ?>">
+               
                     <div class="panel-footer">
                         <span class="pull-left"><?php echo $course['DescripCurso'];?></span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
