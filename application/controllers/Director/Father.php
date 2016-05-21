@@ -27,7 +27,6 @@ class Father extends CI_Controller {
 			$this->load->model('director/FatherModel');
 				//metodo del modelo para obtener la lista de todos los profesores
 			$fathers=$this->FatherModel->GetAll();
-		
 			$fathers['fathers']=$fathers;
 
 			$this->load->view('director/header_view');
@@ -77,9 +76,51 @@ class Father extends CI_Controller {
 			$father['fechaNacApoderado']=$this->input->post('date');
 			$father['fotoApoderado']=$photoName;//$this->input->post('photo');
 
+			$archivo= $_FILES['photo']['name'];
+			$explode= explode('.', $archivo);
+			$extension=array_pop($explode);
+
+			$ftp_server = ftp_service_uri;
+			$ftp_user_name = "web";
+			$ftp_user_pass = "titulacion";
+			$destination_file = "/imagenes/apoderado/";
+			$source_file = $_FILES['photo']['tmp_name'];
+
+
+			$conn_id = ftp_connect($ftp_server);
+			ftp_pasv($conn_id, true);
+			$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+
+			if ((!$conn_id) || (!$login_result)) 
+			{ 
+				//echo "La conexion a fallado";
+				//echo "Intentando conectar a $ftp_server con el usuario $ftp_user_name"; 
+				exit; 
+			}
+			else 
+			{
+				//echo "Conectado a $ftp_server, para el usuario $ftp_user_name <br>";
+			}
+
+
+			$upload = ftp_put($conn_id, $destination_file . $father['fotoApoderado'].'.'.$extension, 
+
+				$source_file, FTP_BINARY);
+
+
+			if (!$upload) 
+			{ 
+				//echo "Error al subir la imagen <br>";
+			} else 
+			{
+				//echo "Subido $source_file a $ftp_server como $destination_file <br>";
+			}
+
+			ftp_close($conn_id);
+
 			//agregar apoderado
-			$response=$this->FatherModel->add(json_encode($father,true));
-			var_dump($response);
+			//$response=$this->FatherModel->add(json_encode($father,true));
+			//var_dump($response);
 			//cargar WEb
 			$this->load->view('director/header_view');
 			$this->load->view('director/navigation_view');

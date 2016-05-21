@@ -39,12 +39,12 @@
                                             ?></td>
                                             <td>
                                             <?php
-                                                    echo $father['telfApoderado'];
+                                                    echo $father['TelfApoderado'];
                                             ?>
                                             </td>
                                             <td>
                                                 <?php
-                                                    echo $father['dirApoderado'];
+                                                    echo $father['DirApoderado'];
                                             ?>
                                             </td>
                                             <td class="center">

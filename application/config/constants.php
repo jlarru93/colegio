@@ -15,7 +15,10 @@ defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);
 
 
 /* vairalbe para web service*/
-defined('web_service_uri') OR define('web_service_uri', 'http://190.117.118.40:4444/WSColegio/rest');
+defined('web_service_uri') OR define('web_service_uri', 'http://192.168.1.240:4444/WSColegio/rest');
+/*variable para ftp server*/
+defined('ftp_service_uri') OR define('ftp_service_uri', '192.168.1.240');
+
 
 /*
 |--------------------------------------------------------------------------

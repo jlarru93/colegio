@@ -15,7 +15,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post" action="<?php echo base_url() ;?>/Director/Father/add" onsubmit="return Validate(this);">
+                                    <form role="form" method="post" action="<?php echo base_url() ;?>/Director/Father/add" onsubmit="return Validate(this);"  enctype="multipart/form-data">
                                        <div class="form-group">
                                         <label>dni</label>
                                         <input name="dni" onKeyDown="if(this.value.length==8) return false;" class="form-control" type="number" maxlength="9"  required>
@@ -74,7 +74,7 @@
 
                                         <div class="form-group">
                                             <label>Foto</label>
-
+                                            <input type="hidden" name="MAX_FILE_SIZE" value="99999999" />
                                             <input type='file' accept="image/*" id="imgInp" name="photo" />
                                             <img id="blah" src="#" alt="your image" width="200px"  height="200px" />                                           
                                         </div> 

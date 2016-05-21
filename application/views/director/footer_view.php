@@ -43,13 +43,38 @@
                 }
             }
         }
+
+          
         );
+                $('#dataTables-courses').DataTable({
+
+              "language": {
+                "lengthMenu": "mostrar _MENU_ cursos por pagina",
+                "zeroRecords": "Disculpe - no se encontro ningun resultado",
+                "info": "pagina _PAGE_ de _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "sSearch": "buscar",
+                "oPaginate": {
+                    "sNext": "siguiente",
+                    "sPrevious": "anterior"
+                }
+            }
+        }
+
+          
+        );
+
+ 
 
 
             //ocultar secundaria
                 document.getElementById('secundaria').style.display = 'none';
         });
     </script>
+
+
+
     <!-- datepicker -->
     <script>
         $(function(){
@@ -59,6 +84,76 @@
             
         });
     </script>
+
+<script>
+
+$( "#btnprimaria" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria').draw();
+}); 
+$( "#btnprimaria1" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria 1°').draw();
+}); 
+$( "#btnprimaria2" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria 2°').draw();
+}); 
+$( "#btnprimaria3" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria 3°').draw();
+}); 
+$( "#btnprimaria4" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria 4°').draw();
+}); 
+$( "#btnprimaria5" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria 5°').draw();
+}); 
+$( "#btnprimaria6" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('primaria 6°').draw();
+}); 
+
+</script>
+
+<script>
+
+$( "#btnsecundaria" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('secundaria').draw();
+}); 
+$( "#btnsecundaria1" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('secundaria 1°').draw();
+}); 
+$( "#btnsecundaria2" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('secundaria 2°').draw();
+}); 
+$( "#btnsecundaria3" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('secundaria 3°').draw();
+}); 
+$( "#btnsecundaria4" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('secundaria 4°').draw();
+}); 
+$( "#btnsecundaria5" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('secundaria 5°').draw();
+}); 
+
+
+</script>
+
+<script >
+    $( "#btnallcourses" ).click(function() {
+    var tabla=$('#dataTables-courses').DataTable();
+    tabla.search('').draw();
+}); 
+</script>
 
     <!-- ocultar div -->
 

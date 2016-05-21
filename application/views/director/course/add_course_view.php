@@ -15,33 +15,33 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" method="POST">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control" required>
+                                            <input name="descripCurso" class="form-control" required>
                                            
                                         </div>
                                          <div class="form-group">
                                             <label>nivel</label>
-                                            <select class="form-control">
-                                                <option>primaria</option>
-                                                <option>secundaria</option>
+                                            <select name="nivel" class="form-control">
+                                                <option value="P">primaria</option>
+                                                <option value="S">secundaria</option>
                                              </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Grado</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
+                                            <select name="grade" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
                                             </select>
                                         </div>
 
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                        <button type="submit" class="btn btn-primary">Agregar</button>
+                                        
                                     </form>
                                 </div>  
                                
